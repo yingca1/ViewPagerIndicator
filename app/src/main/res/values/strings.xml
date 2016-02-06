@@ -1,0 +1,13 @@
+<resources>
+
+    <string name="app_name">ViewPagerIndicator</string>
+    <string name="tab1_text">Chats</string>
+    <string name="tab2_text">Contacts</string>
+    <string name="tab3_text">Discover</string>
+    <string name="tab4_text">Me</string>
+
+    <string name="activity_fading_tab">YC#DEMO#FadingTabPagerIndicator</string>
+    <string name="activity_line">YC#DEMO#LinePagerIndicator</string>
+    <string name="activity_circle">YC#DEMO#CirclePagerIndicator</string>
+
+</resources>
