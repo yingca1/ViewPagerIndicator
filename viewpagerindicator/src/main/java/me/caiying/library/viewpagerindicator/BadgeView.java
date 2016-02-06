@@ -73,7 +73,7 @@ public class BadgeView extends TextView {
 
     /**
      * Constructor -
-     * <p/>
+     *
      * create a new BadgeView instance attached to a target {@link android.view.View}.
      *
      * @param context context for this view.
@@ -85,7 +85,7 @@ public class BadgeView extends TextView {
 
     /**
      * Constructor -
-     * <p/>
+     *
      * create a new BadgeView instance attached to a target {@link android.widget.TabWidget}
      * tab at a given index.
      *
@@ -402,7 +402,7 @@ public class BadgeView extends TextView {
 
     /**
      * Returns the positioning of this badge.
-     * <p/>
+     *
      * one of POSITION_TOP_LEFT, POSITION_TOP_RIGHT, POSITION_BOTTOM_LEFT, POSITION_BOTTOM_RIGHT, POSTION_CENTER.
      */
     public int getBadgePosition() {

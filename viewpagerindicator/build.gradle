@@ -1,4 +1,6 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
 
 android {
     compileSdkVersion 23
@@ -8,7 +10,7 @@ android {
         minSdkVersion 9
         targetSdkVersion 23
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
     }
     buildTypes {
         release {
@@ -23,3 +25,28 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.1.1'
 }
+
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'ViewPagerIndicator'
+
+    publishedGroupId = 'me.caiying.library'
+    artifact = 'viewpagerindicator'
+
+    siteUrl = 'https://github.com/yc10x/ViewPagerIndicator'
+    gitUrl = 'https://github.com/yc10x/ViewPagerIndicator.git'
+
+    libraryVersion = '1.0.0'
+    libraryName = 'ViewPagerIndicator'
+    libraryDescription = 'A ViewPager Indicator library for Android'
+
+    developerId = 'yc10x'
+    developerName = 'caiying'
+    developerEmail = 'i@caiying.me'
+
+    licenseName = 'MIT'
+    licenseUrl = 'https://opensource.org/licenses/MIT'
+    allLicenses = ["MIT"]
+}
+apply from:'https://raw.githubusercontent.com/yc10x/static/master/jcenter/install.gradle'
+apply from:'https://raw.githubusercontent.com/yc10x/static/master/jcenter/bintray.gradle'
