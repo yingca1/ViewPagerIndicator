@@ -23,6 +23,7 @@ public class FadingTabPagerActivity extends FragmentActivity {
         viewPager.setAdapter(new FadeTabFragmentPagerAdapter(this, getSupportFragmentManager()));
         fadingTabPagerIndicator.setViewPager(viewPager);
         fadingTabPagerIndicator.setBackgroundResource(R.drawable.bg_tabs);
+        fadingTabPagerIndicator.setBadge(1, 23);
     }
 
     private class FadeTabFragmentPagerAdapter extends SampleFragmentPagerAdapter implements FadingTabPagerIndicator.FadingTab {
@@ -44,13 +45,13 @@ public class FadingTabPagerActivity extends FragmentActivity {
         }
 
         @Override
-        public int getTabNormalTextColorResId(int position) {
-            return R.color.text_normal;
+        public int getTabNormalTextColor(int position) {
+            return getResources().getColor(R.color.text_normal);
         }
 
         @Override
-        public int getTabSelectTextColorResId(int position) {
-            return R.color.text_select;
+        public int getTabSelectTextColor(int position) {
+            return getResources().getColor(R.color.text_select);
         }
     }
 }
