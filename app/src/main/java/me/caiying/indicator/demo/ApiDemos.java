@@ -143,4 +143,6 @@ public class ApiDemos extends ListActivity {
         startActivity(intent);
     }
 
+public void test() { }
+
 }
