@@ -10,6 +10,7 @@ import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RoundRectShape;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
@@ -154,14 +155,14 @@ public class BadgeView extends TextView {
             this.target = target;
 
             ((ViewGroup) target).addView(container,
-                new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
+                new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
 
             this.setVisibility(View.INVISIBLE);
             container.addView(this);
 
             mNoneTipsView = new ImageView(getContext());
             mNoneTipsView.setImageDrawable(getResources().getDrawable(R.drawable.mark_none_tips));
-            container.addView(mNoneTipsView);
+            container.addView(mNoneTipsView, new FrameLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
             mNoneTipsView.setVisibility(View.INVISIBLE);
 
         } else {
@@ -180,7 +181,7 @@ public class BadgeView extends TextView {
 
             mNoneTipsView = new ImageView(getContext());
             mNoneTipsView.setImageDrawable(getResources().getDrawable(R.drawable.mark_none_tips));
-            container.addView(mNoneTipsView);
+            container.addView(mNoneTipsView, new FrameLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
             mNoneTipsView.setVisibility(View.INVISIBLE);
 
             group.invalidate();
@@ -356,6 +357,10 @@ public class BadgeView extends TextView {
 
         FrameLayout.LayoutParams lp = new FrameLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 
+        if (TextUtils.isEmpty(getText())) {
+            badgeMarginH += dipToPixels(DEFAULT_MARGIN_DIP * 2);
+            badgeMarginV += dipToPixels(DEFAULT_MARGIN_DIP / 2);
+        }
         switch (badgePosition) {
             case POSITION_TOP_LEFT:
                 lp.gravity = Gravity.LEFT | Gravity.TOP;
@@ -363,6 +368,7 @@ public class BadgeView extends TextView {
                 break;
             case POSITION_TOP_RIGHT:
                 lp.gravity = Gravity.RIGHT | Gravity.TOP;
+                Log.i("test", badgeMarginH + " : " + badgeMarginV);
                 lp.setMargins(0, badgeMarginV, badgeMarginH, 0);
                 break;
             case POSITION_BOTTOM_LEFT:
@@ -381,8 +387,11 @@ public class BadgeView extends TextView {
                 break;
         }
 
-        setLayoutParams(lp);
-
+        if (TextUtils.isEmpty(getText())) {
+            mNoneTipsView.setLayoutParams(lp);
+        } else {
+            setLayoutParams(lp);
+        }
     }
 
     /**

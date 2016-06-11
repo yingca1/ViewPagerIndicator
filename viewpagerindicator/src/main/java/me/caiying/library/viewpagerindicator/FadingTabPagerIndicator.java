@@ -212,7 +212,7 @@ public class FadingTabPagerIndicator extends LinearLayout {
             setGravity(Gravity.CENTER);
 
             LayoutParams wpLayoutParams =
-                new LayoutParams(Utils.dp2px(getContext(), 48), Utils.dp2px(getContext(), 28));
+                new LayoutParams(Utils.dp2px(getContext(), 58), Utils.dp2px(getContext(), 28));
             LinearLayout wrapperLayout = new LinearLayout(getContext());
             wrapperLayout.setGravity(Gravity.CENTER);
             addView(wrapperLayout, wpLayoutParams);

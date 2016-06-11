@@ -23,7 +23,10 @@ public class FadingTabPagerActivity extends FragmentActivity {
         viewPager.setAdapter(new FadeTabFragmentPagerAdapter(this, getSupportFragmentManager()));
         fadingTabPagerIndicator.setViewPager(viewPager);
         fadingTabPagerIndicator.setBackgroundResource(R.drawable.bg_tabs);
+        fadingTabPagerIndicator.setBadge(0, 3);
         fadingTabPagerIndicator.setBadge(1, 23);
+        fadingTabPagerIndicator.setBadge(2, 999);
+        fadingTabPagerIndicator.setNoneBadge(3);
     }
 
     private class FadeTabFragmentPagerAdapter extends SampleFragmentPagerAdapter implements FadingTabPagerIndicator.FadingTab {
