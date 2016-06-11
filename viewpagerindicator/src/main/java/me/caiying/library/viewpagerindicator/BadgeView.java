@@ -10,7 +10,6 @@ import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RoundRectShape;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
@@ -357,27 +356,28 @@ public class BadgeView extends TextView {
 
         FrameLayout.LayoutParams lp = new FrameLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 
+        int offsetH = badgeMarginH;
+        int offsetV = badgeMarginV;
         if (TextUtils.isEmpty(getText())) {
-            badgeMarginH += dipToPixels(DEFAULT_MARGIN_DIP * 2);
-            badgeMarginV += dipToPixels(DEFAULT_MARGIN_DIP / 2);
+            offsetH = badgeMarginH + Utils.dp2px(getContext(), DEFAULT_MARGIN_DIP * 2);
+            offsetV = badgeMarginV + Utils.dp2px(getContext(), DEFAULT_MARGIN_DIP / 2);
         }
         switch (badgePosition) {
             case POSITION_TOP_LEFT:
                 lp.gravity = Gravity.LEFT | Gravity.TOP;
-                lp.setMargins(badgeMarginH, badgeMarginV, 0, 0);
+                lp.setMargins(offsetH, offsetV, 0, 0);
                 break;
             case POSITION_TOP_RIGHT:
                 lp.gravity = Gravity.RIGHT | Gravity.TOP;
-                Log.i("test", badgeMarginH + " : " + badgeMarginV);
-                lp.setMargins(0, badgeMarginV, badgeMarginH, 0);
+                lp.setMargins(0, offsetV, offsetH, 0);
                 break;
             case POSITION_BOTTOM_LEFT:
                 lp.gravity = Gravity.LEFT | Gravity.BOTTOM;
-                lp.setMargins(badgeMarginH, 0, 0, badgeMarginV);
+                lp.setMargins(offsetH, 0, 0, offsetV);
                 break;
             case POSITION_BOTTOM_RIGHT:
                 lp.gravity = Gravity.RIGHT | Gravity.BOTTOM;
-                lp.setMargins(0, 0, badgeMarginH, badgeMarginV);
+                lp.setMargins(0, 0, offsetH, offsetV);
                 break;
             case POSITION_CENTER:
                 lp.gravity = Gravity.CENTER;
