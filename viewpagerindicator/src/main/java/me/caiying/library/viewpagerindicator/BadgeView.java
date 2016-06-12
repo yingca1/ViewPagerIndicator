@@ -292,8 +292,12 @@ public class BadgeView extends TextView {
 
     private void hide(boolean animate, Animation anim) {
         this.setVisibility(View.INVISIBLE);
+        if (TextUtils.isEmpty(getText())) {
+            mNoneTipsView.setVisibility(INVISIBLE);
+        }
         if (animate) {
             this.startAnimation(anim);
+            mNoneTipsView.startAnimation(anim);
         }
         isShown = false;
     }

@@ -27,6 +27,11 @@ public class FadingTabPagerActivity extends FragmentActivity {
         fadingTabPagerIndicator.setBadge(1, 23);
         fadingTabPagerIndicator.setBadge(2, 999);
         fadingTabPagerIndicator.setNoneBadge(3);
+
+//        fadingTabPagerIndicator.hideBadge(0);
+//        fadingTabPagerIndicator.hideBadge(1);
+//        fadingTabPagerIndicator.hideBadge(2);
+//        fadingTabPagerIndicator.hideBadge(3);
     }
 
     private class FadeTabFragmentPagerAdapter extends SampleFragmentPagerAdapter implements FadingTabPagerIndicator.FadingTab {
