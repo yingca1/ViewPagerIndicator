@@ -6,6 +6,7 @@ import android.content.Context;
 import android.os.Build;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -67,6 +68,16 @@ public class FadingTabPagerIndicator extends LinearLayout {
         if (number > 0) {
             BadgeView badgeView = ((TabView) getChildAt(index)).getBadgeView();
             badgeView.setText(String.valueOf(number));
+            badgeView.show();
+        } else {
+            setNoneBadge(index);
+        }
+    }
+
+    public void setBadge(int index, String number) {
+        if (!TextUtils.isEmpty(number)) {
+            BadgeView badgeView = ((TabView) getChildAt(index)).getBadgeView();
+            badgeView.setText(number);
             badgeView.show();
         } else {
             setNoneBadge(index);
