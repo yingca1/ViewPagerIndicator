@@ -10,7 +10,7 @@ android {
         minSdkVersion 9
         targetSdkVersion 23
         versionCode 5
-        versionName "1.0.4"
+        versionName "1.0.5"
     }
     buildTypes {
         release {
@@ -36,7 +36,7 @@ ext {
     siteUrl = 'https://github.com/yc10x/ViewPagerIndicator'
     gitUrl = 'https://github.com/yc10x/ViewPagerIndicator.git'
 
-    libraryVersion = '1.0.4'
+    libraryVersion = '1.0.5'
     libraryName = 'ViewPagerIndicator'
     libraryDescription = 'A ViewPager Indicator library for Android'
 
